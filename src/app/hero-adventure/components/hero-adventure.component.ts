@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { Game } from '../models/game';
 import { InfoComponent } from './info/info.component';
+import { GameService } from './service/game.service';
 
 @Component({
   selector: 'app-hero-adventure',
@@ -8,16 +8,16 @@ import { InfoComponent } from './info/info.component';
   styleUrls: ['./hero-adventure.component.scss']
 })
 export class HeroAdventureComponent {
-  game: Game = new Game();
   gameStarted = false;
-
   currentLevel: number = 1;
   actionResults: string[] = [];
 
   @ViewChild(InfoComponent, { static: false }) infoComponent: InfoComponent;
 
+  constructor(public gameService: GameService) {}
+
   addMessage(message: string) {
-    this.game.actionResults.push(message);
+    this.gameService.getActionResults().push(message);
     if (this.infoComponent) {
       this.infoComponent.scrollToBottom();
     }
@@ -38,5 +38,4 @@ export class HeroAdventureComponent {
       this.actionResults.push("Você concluiu sua jornada!");
     }
   }
-
 }

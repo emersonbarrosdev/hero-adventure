@@ -4,8 +4,8 @@
 
 <ng-template #gameContainer>
   <div class="game-container">
-    <app-actions [game]="game"></app-actions>
-    <app-info [hero]="game.hero" [enemy]="game.enemy" [actionResults]="game.actionResults"></app-info>
+    <app-actions [gameService]="gameService"></app-actions>
+    <app-info></app-info>
     <ng-container *ngIf="currentLevel === 1">
       <app-floresta-elfica (choiceMade)="onChoiceMade($event)"></app-floresta-elfica>
     </ng-container>
@@ -23,4 +23,3 @@
     </div>
   </div>
 </ng-template>
-

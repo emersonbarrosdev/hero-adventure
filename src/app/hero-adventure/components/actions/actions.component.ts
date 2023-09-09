@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Game } from '../../models/game';
+import { Component, Input } from '@angular/core';
+import { GameService } from '../service/game.service';
 
 @Component({
   selector: 'app-actions',
@@ -7,5 +7,5 @@ import { Game } from '../../models/game';
   styleUrls: ['./actions.component.scss']
 })
 export class ActionsComponent {
-  @Input() game: Game;
+  @Input() gameService: GameService;
 }
