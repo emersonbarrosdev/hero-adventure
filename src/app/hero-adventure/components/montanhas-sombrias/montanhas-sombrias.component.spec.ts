@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MontanhasSombriasDComponent } from './montanhas-sombrias-d.component';
+import { MontanhasSombriasComponent } from './montanhas-sombrias.component';
 
 describe('MontanhasSombriasDComponent', () => {
-  let component: MontanhasSombriasDComponent;
-  let fixture: ComponentFixture<MontanhasSombriasDComponent>;
+  let component: MontanhasSombriasComponent;
+  let fixture: ComponentFixture<MontanhasSombriasComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MontanhasSombriasDComponent]
+      declarations: [MontanhasSombriasComponent]
     });
-    fixture = TestBed.createComponent(MontanhasSombriasDComponent);
+    fixture = TestBed.createComponent(MontanhasSombriasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

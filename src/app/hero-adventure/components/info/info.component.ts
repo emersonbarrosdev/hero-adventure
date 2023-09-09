@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Character } from '../../models/character';
+import { CharacterModel } from '../../models/characterModel';
 import { GameService } from '../service/game.service';
 import { Subscription } from 'rxjs';
 
@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./info.component.scss']
 })
 export class InfoComponent implements OnInit, OnDestroy {
-  hero: Character;
-  enemy: Character;
+  hero: CharacterModel;
+  enemy: CharacterModel;
   actionResults: string[] = [];
   private actionResultsSubscription: Subscription;
 

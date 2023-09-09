@@ -8,8 +8,8 @@ import { ActionsComponent } from './hero-adventure/components/actions/actions.co
 import { HeroAdventureComponent } from './hero-adventure/components/hero-adventure.component';
 import { GameStartComponent } from './hero-adventure/components/game-start/game-start.component';
 import { FlorestaElficaComponent } from './hero-adventure/components/floresta-elfica/floresta-elfica.component';
-import { MontanhasSombriasDComponent } from './hero-adventure/components/montanhas-sombrias-d/montanhas-sombrias-d.component';
 import { FortalezaGorgorothComponent } from './hero-adventure/components/fortaleza-gorgoroth/fortaleza-gorgoroth.component';
+import { MontanhasSombriasComponent } from './hero-adventure/components/montanhas-sombrias/montanhas-sombrias.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { FortalezaGorgorothComponent } from './hero-adventure/components/fortale
     HeroAdventureComponent,
     GameStartComponent,
     FlorestaElficaComponent,
-    MontanhasSombriasDComponent,
+    MontanhasSombriasComponent,
     FortalezaGorgorothComponent,
   ],
   imports: [

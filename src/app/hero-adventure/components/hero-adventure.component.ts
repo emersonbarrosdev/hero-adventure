@@ -28,14 +28,16 @@ export class HeroAdventureComponent {
   }
 
   onChoiceMade(choice: string) {
-    this.actionResults.push(choice);
+  this.actionResults.push(choice);
 
-    // Avançar para o próximo nível ou terminar o jogo
-    if (this.currentLevel < 3) {
-      this.currentLevel++;
-    } else {
-      // Fim do jogo
-      this.actionResults.push("Você concluiu sua jornada!");
-    }
+  if (this.gameService.isOrcDead() && this.currentLevel < 3) {
+    this.currentLevel++;
+    // Adicione uma mensagem para indicar o avanço para a próxima fase
+    this.actionResults.push("Você avançou para a próxima fase!");
+  } else if (this.gameService.isOrcDead()) {
+    // Fim do jogo após a terceira fase
+    this.actionResults.push("Você concluiu sua jornada!");
   }
+}
+
 }

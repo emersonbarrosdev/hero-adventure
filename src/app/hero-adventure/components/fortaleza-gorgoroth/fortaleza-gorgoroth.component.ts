@@ -7,4 +7,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class FortalezaGorgorothComponent {
   @Output() choiceMade = new EventEmitter<string>();
+
+  confront() {
+    this.choiceMade.emit('Enfrentar Gorgoroth');
+  }
+
+  retreat() {
+    this.choiceMade.emit('Tentar recuar');
+  }
 }
