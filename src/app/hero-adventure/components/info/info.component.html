@@ -1,0 +1,9 @@
+<div class="game-info text-center">
+  <div class="hero-orc">
+    <p>Paladino: <span>{{ hero?.health }}</span></p>
+    <p>Orc: <span>{{ enemy?.health }}</span></p>
+  </div>
+  <div class="result-box" #resultBox>
+    <p class="action-result text-white" *ngFor="let result of actionResults" [innerHTML]="result"></p>
+  </div>
+</div>
