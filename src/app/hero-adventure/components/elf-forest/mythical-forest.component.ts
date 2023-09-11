@@ -23,8 +23,8 @@ export class MythicalForestComponent {
     private gameService: GameService,
     private router: Router
   ) {
-    this.hero = new HeroCharacterModel('Ealdred', 100, 10, 5, false);
-    this.enemy = new EnemyCharacterModel('Kargul', 100, 20, 6);
+    this.hero = new HeroCharacterModel('Ealdred', 100, 20, 5, false);
+    this.enemy = new EnemyCharacterModel('Kargul', 100, 15, 5);
     this.gameService.setHero(this.hero);
     this.gameService.setEnemy(this.enemy);
 
@@ -41,25 +41,23 @@ export class MythicalForestComponent {
   attack() {
     if (!this.isGameOver && !this.orcIsDead && !this.heroIsDead) {
       let heroDamage = this.hero.ATK - this.enemy.DEF;
-      let attackResult = `**${this.hero.name}** ataca!\n`;
+      let attackResult = `* ${this.hero.name} Ataca! *\n`;
       if (this.isCriticalHeroHit()) {
         heroDamage *= 3;
-        attackResult = `Ataque crítico ${this.hero.name}\n Espada Relâmpago!`;
+        attackResult = `** Ataque Crítico Golpe do Caos! **\n `;
         this.actionResults.push(attackResult);
         this.hero.guard = false;
       }
 
-      if (this.hero.guard) {
-        attackResult += `O ${this.hero.name} ataca`;
-      }
       if (heroDamage > 0) {
         this.enemy.HP -= heroDamage;
-        attackResult += `Orc perdeu ${heroDamage} pontos de vida.`;
+        attackResult += `Orc perdeu ${heroDamage} pontos de vida.\n`;
 
         if (this.enemy.HP <= 0) {
           this.orcIsDead = true;
+          this.enemy.HP = 0;
           this.isGameOver = true;
-          attackResult += `O ${this.hero.name} venceu o jogo!`;
+          attackResult += `${this.hero.name} venceu a batalha!`;
           this.actionResults.push(attackResult);
         } else {
           this.isHeroTurn = false;
@@ -80,20 +78,20 @@ export class MythicalForestComponent {
   attackOrc() {
     if (!this.isGameOver && !this.orcIsDead && !this.heroIsDead) {
       let orcDamage = this.enemy.ATK - this.hero.DEF;
-      let attackResult = `${this.enemy.name} ataca!`;
+      let attackResult = `* ${this.enemy.name} Ataca! *\n`;
 
       if (this.isCriticalOrcHit()) {
         orcDamage *= 1.5;
-        attackResult = `Ataque crítico de ${this.enemy.name}!`;
+        attackResult = `** Ataque Crítico Fúria Descontrolada! **\n`;
         this.hero.guard = false;
       }
 
       if (this.hero.guard) {
         orcDamage *= 0.2;
-        attackResult += `${this.hero.name} entrou em modo de defesa!`;
-        attackResult += `O dano foi minimizado em ${orcDamage}.`;
+        attackResult += `* Escudo ${this.hero.name} Ativo *\n`;
+        attackResult += `Gladiador perdeu ${orcDamage} pontos de vida.\n`;
       } else {
-        attackResult += `O ${this.hero.name} perdeu ${orcDamage} pontos de vida.`;
+        attackResult += `Gladiador perdeu ${orcDamage} pontos de vida.\n`;
       }
 
       if (orcDamage > 0) {
@@ -104,8 +102,9 @@ export class MythicalForestComponent {
 
       if (this.hero.HP <= 0) {
         this.heroIsDead = true;
+        this.hero.HP = 0;
         this.isGameOver = true;
-        this.actionResults.push(`O ${this.enemy.name} venceu o jogo!`);
+        this.actionResults.push(`${this.enemy.name} venceu a batalha!`);
       } else {
         this.isHeroTurn = true;
       }

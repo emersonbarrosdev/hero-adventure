@@ -1,8 +1,8 @@
 .game-info {
   margin: 0.5rem auto 0;
   padding: 10px 30px;
-  width: 60%;
-  color: #ffd900;
+  width: 50%;
+  color: #fff;
   border-radius: 5px;
   border: 1px solid #444;
   display: flex;
@@ -34,6 +34,7 @@
 p {
   padding: 0;
   margin: 0.3rem;
+
   .class-person {
     font-weight: 200;
   }
@@ -46,6 +47,7 @@ pre {
   padding: 0;
   margin: 0;
 }
+
 .result-box {
   text-align: center;
   padding: 10px 20px;
@@ -71,19 +73,31 @@ pre {
 
 .action-result {
   margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-result span {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-message {
-  color: #00df13;
+  color: #c5fbff;
+}
+
+.critical-hero-message {
+  color: #00eeff;
 }
 
 .orc-message {
-  color: #df0000;
+  color: #ff9494;
 }
 
-.critical-message {
-  color: #00eeff;
-  font-style: italic;
+.critical-enemy-message {
+  color: #ff0000;
 }
 
 .hp-bar {

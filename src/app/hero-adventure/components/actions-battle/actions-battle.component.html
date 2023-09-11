@@ -4,7 +4,8 @@
       <p class="name">{{ hero?.name }} <span class="class-person">Gladiador</span></p>
       <p>ATK: <span>{{ hero?.ATK }}</span> | DEF: <span>{{ hero?.DEF }}</span></p>
       <div class="hp-bar">
-        <div class="hp-fill" [style.width.%]="isHeroHPZero() ? 0 : (hero.HP / hero.maxHP) * 100" [class.empty-hp-fill]="isHeroHPZero()">
+        <div class="hp-fill" [style.width.%]="isHeroHPZero() ? 0 : (hero.HP / hero.maxHP) * 100"
+          [class.empty-hp-fill]="isHeroHPZero()">
           <span class="hp-text">{{ hero.HP }} / {{ hero.maxHP }}</span>
         </div>
       </div>
@@ -13,7 +14,8 @@
       <p class="name">{{ enemy?.name }} <span class="class-person">Orc</span></p>
       <p>ATK: <span>{{ enemy?.ATK }} | DEF: <span>{{ enemy?.DEF }}</span></span></p>
       <div class="hp-bar">
-        <div class="hp-fill" [style.width.%]="isEnemyHPZero() ? 0 : (enemy.HP / enemy.maxHP) * 100" [class.empty-hp-fill]="isEnemyHPZero()">
+        <div class="hp-fill" [style.width.%]="isEnemyHPZero() ? 0 : (enemy.HP / enemy.maxHP) * 100"
+          [class.empty-hp-fill]="isEnemyHPZero()">
           <span class="hp-text">{{ enemy.HP }} / {{ enemy.maxHP }}</span>
         </div>
       </div>
@@ -21,8 +23,12 @@
   </div>
   <div class="result-box" #resultBox>
     <div *ngFor="let result of actionResults">
-       <pre class="action-result" [class.hero-message]="result.includes(hero.name)"
-       [class.orc-message]="result.includes(enemy.name)" [class.critical-message]="result.includes('crítico')">{{ result }}</pre>
+      <pre class="action-result" [class.hero-message]="result.includes(hero.name)"
+        [class.orc-message]="result.includes(enemy.name)"
+        [class.critical-hero-message]="result.includes('Golpe do Caos')"
+        [class.critical-enemy-message]="result.includes('Fúria Descontrolada')">
+       <span>{{ result }}</span>
+      </pre>
     </div>
   </div>
 </div>
