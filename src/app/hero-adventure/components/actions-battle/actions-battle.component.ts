@@ -26,7 +26,9 @@ export class ActionsBattleComponent implements OnInit, OnDestroy {
       this.actionResults = results;
       this.scrollToBottom();
     });
+
   }
+
 
   scrollToBottom() {
     setTimeout(() => {

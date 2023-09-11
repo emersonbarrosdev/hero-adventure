@@ -15,10 +15,6 @@ export class GameService {
   private actionResultsSubject = new BehaviorSubject<string[]>([]);
   public actionResults$: Observable<string[]> = this.actionResultsSubject.asObservable();
 
-  getActionResults(): Observable<string[]> {
-    return this.actionResults$;
-  }
-
   addActionResult(result: string) {
     this.actionResults.push(result);
     this.actionResultsSubject.next(this.actionResults);

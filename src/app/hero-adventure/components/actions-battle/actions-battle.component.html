@@ -4,6 +4,14 @@
     <p>Orc: <span>{{ enemy?.health }}</span></p>
   </div>
   <div class="result-box" #resultBox>
-    <p class="action-result text-white" *ngFor="let result of actionResults">{{ result }}</p>
+    <div *ngFor="let result of actionResults">
+      <p class="action-result"
+      [class.hero-message]="result.includes(hero.name)"
+      [class.orc-message]="result.includes(enemy.name)"
+      [class.critical-message]="result.includes('crítico')">
+        {{ result }}
+      </p>
+    </div>
+
   </div>
 </div>

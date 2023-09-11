@@ -3,24 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InfoComponent } from './hero-adventure/components/info/info.component';
-import { ActionsComponent } from './hero-adventure/components/actions/actions.component';
+import { ActionsBattleComponent } from './hero-adventure/components/actions-battle/actions-battle.component';
 import { HeroAdventureComponent } from './hero-adventure/components/hero-adventure.component';
-import { GameStartComponent } from './hero-adventure/components/game-start/game-start.component';
-import { FlorestaElficaComponent } from './hero-adventure/components/floresta-elfica/floresta-elfica.component';
-import { FortalezaGorgorothComponent } from './hero-adventure/components/fortaleza-gorgoroth/fortaleza-gorgoroth.component';
-import { MontanhasSombriasComponent } from './hero-adventure/components/montanhas-sombrias/montanhas-sombrias.component';
+import { MythicalForestComponent } from './hero-adventure/components/mythical-forest/mythical-forest.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    InfoComponent,
-    ActionsComponent,
     HeroAdventureComponent,
-    GameStartComponent,
-    FlorestaElficaComponent,
-    MontanhasSombriasComponent,
-    FortalezaGorgorothComponent,
+    MythicalForestComponent,
+    ActionsBattleComponent,
   ],
   imports: [
     BrowserModule,

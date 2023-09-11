@@ -1,20 +1,14 @@
-<ng-container *ngIf="!start; else gameContainer">
-  <div class="container-home text-center">
-    <div class="content-home">
-      <h1>Bem-vindo ao Reino Mítico</h1>
-      <p>O reino está sob ameaça dos terríveis orcs liderados por Gorgoroth.</p>
-      <p>Você foi convocado para se tornar o lendário paladino e enfrentar essa terrível ameaça. O destino do reino
-        repousa sobre seus ombros, e sua coragem será testada em batalhas épicas e desafios perigosos.</p>
-      <p>À medida que você começa sua jornada, encontrará aliados valentes e desvendará segredos antigos que o guiarão
-        em
-        sua missão. Mas cuidado, os orcs não são a única ameaça que espreita nas sombras. Criaturas misteriosas e
-        magia
-        negra aguardam à medida que você avança em direção ao confronto final com Gorgoroth.</p>
-      <button class="btn btn btn-dark m-2" (click)="startGame()">INICIAR JOGO</button>
-    </div>
+<div class="container-home text-center">
+  <div class="content-home">
+    <h1>Bem-vindo ao Reino Mítico</h1>
+    <p>O reino está sob ameaça dos terríveis orcs liderados por Gorgoroth.</p>
+    <p>Você foi convocado para se tornar o lendário paladino e enfrentar essa terrível ameaça. O destino do reino
+      repousa sobre seus ombros, e sua coragem será testada em batalhas épicas e desafios perigosos.</p>
+    <p>À medida que você começa sua jornada, encontrará aliados valentes e desvendará segredos antigos que o guiarão
+      em
+      sua missão. Mas cuidado, os orcs não são a única ameaça que espreita nas sombras. Criaturas misteriosas e
+      magia
+      negra aguardam à medida que você avança em direção ao confronto final com Gorgoroth.</p>
+    <button class="btn btn btn-dark m-2" (click)="startGame()">INICIAR JOGO</button>
   </div>
-</ng-container>
-
-<ng-template #gameContainer>
-  <app-mythical-forest></app-mythical-forest>
-</ng-template>
+</div>

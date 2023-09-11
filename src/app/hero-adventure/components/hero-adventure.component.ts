@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero-adventure',
@@ -8,8 +9,10 @@ import { Component } from '@angular/core';
 export class HeroAdventureComponent {
   start: boolean = false;
 
+  constructor( private router: Router) {}
+
   startGame() {
-    this.start = true;
+    this.router.navigate(['/mythical-forest'])
   }
 
 }

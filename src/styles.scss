@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&family=Poppins:wght@200;400;600&display=swap');
 
 * {
   margin: 0;
@@ -9,7 +9,8 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-family: 'IM Fell DW Pica', serif;
+  font-family: 'Poppins', sans-serif;
   background-image: url('./assets/background.jpg');
+  background-size: cover;
   overflow: hidden;
 }
