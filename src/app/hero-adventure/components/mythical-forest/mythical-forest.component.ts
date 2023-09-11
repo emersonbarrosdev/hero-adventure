@@ -131,7 +131,7 @@ export class MythicalForestComponent {
   }
 
   nextPhase() {
-    console.log('PRÓXIMA FASE');
+    this.router.navigate(['/dark-mountains']);
   }
 
   home() {
