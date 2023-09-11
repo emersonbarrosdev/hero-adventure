@@ -34,8 +34,18 @@
 p {
   padding: 0;
   margin: 0.3rem;
+  .class-person {
+    font-weight: 200;
+  }
 }
 
+pre {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+}
 .result-box {
   text-align: center;
   padding: 10px 20px;

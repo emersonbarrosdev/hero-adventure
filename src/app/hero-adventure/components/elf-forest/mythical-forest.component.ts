@@ -23,34 +23,35 @@ export class MythicalForestComponent {
     private gameService: GameService,
     private router: Router
   ) {
-    this.hero = new HeroCharacterModel('Alast', 100, 10, 5, false);
-    this.enemy = new EnemyCharacterModel('Onyx', 100, 20, 6);
+    this.hero = new HeroCharacterModel('Ealdred', 100, 10, 5, false);
+    this.enemy = new EnemyCharacterModel('Kargul', 100, 20, 6);
     this.gameService.setHero(this.hero);
     this.gameService.setEnemy(this.enemy);
 
     setTimeout(() => {
       this.showLoading = false;
-    }, 1000);
+    }, 500);
   }
 
-  private isCriticalHit() {
+  private isCriticalHeroHit() {
     const baseChance = this.hero.guard ? 0.5 : 0.2;
     return Math.random() <= baseChance;
   }
 
   attack() {
     if (!this.isGameOver && !this.orcIsDead && !this.heroIsDead) {
-      // Quando o herói decide atacar, a defesa é automaticamente cancelada
-      this.hero.guard = false;
-
       let heroDamage = this.hero.ATK - this.enemy.DEF;
-      let attackResult = `${this.hero.name} ataca!`;
-      if (this.isCriticalHit()) {
-        heroDamage *= 2;
-        attackResult = `Ataque crítico de ${this.hero.name}!`;
+      let attackResult = `**${this.hero.name}** ataca!\n`;
+      if (this.isCriticalHeroHit()) {
+        heroDamage *= 3;
+        attackResult = `Ataque crítico ${this.hero.name}\n Espada Relâmpago!`;
         this.actionResults.push(attackResult);
+        this.hero.guard = false;
       }
 
+      if (this.hero.guard) {
+        attackResult += `O ${this.hero.name} ataca`;
+      }
       if (heroDamage > 0) {
         this.enemy.HP -= heroDamage;
         attackResult += `Orc perdeu ${heroDamage} pontos de vida.`;
@@ -64,11 +65,16 @@ export class MythicalForestComponent {
           this.isHeroTurn = false;
           setTimeout(() => {
             this.attackOrc();
-          }, 1000);
+          }, 500);
         }
         this.gameService.addActionResult(attackResult);
       }
     }
+  }
+
+  private isCriticalOrcHit() {
+    const baseChance = this.hero.guard ? 0.2 : 0.2;
+    return Math.random() <= baseChance;
   }
 
   attackOrc() {
@@ -76,10 +82,16 @@ export class MythicalForestComponent {
       let orcDamage = this.enemy.ATK - this.hero.DEF;
       let attackResult = `${this.enemy.name} ataca!`;
 
+      if (this.isCriticalOrcHit()) {
+        orcDamage *= 1.5;
+        attackResult = `Ataque crítico de ${this.enemy.name}!`;
+        this.hero.guard = false;
+      }
+
       if (this.hero.guard) {
-        // Quando o herói está em modo de defesa, o dano do orc é reduzido em 60%
         orcDamage *= 0.2;
-        attackResult += `${this.hero.name} está se defendendo. O dano foi de ${orcDamage}.`;
+        attackResult += `${this.hero.name} entrou em modo de defesa!`;
+        attackResult += `O dano foi minimizado em ${orcDamage}.`;
       } else {
         attackResult += `O ${this.hero.name} perdeu ${orcDamage} pontos de vida.`;
       }
@@ -105,20 +117,12 @@ export class MythicalForestComponent {
 
   defend() {
     if (!this.isGameOver && !this.orcIsDead && !this.heroIsDead) {
-      if (this.isHeroTurn) { // Apenas o herói pode se defender quando é o turno dele
-        this.hero.guard = !this.hero.guard; // Ativa ou desativa o modo de defesa
-
-        if (this.hero.guard) {
-          this.actionResults.push(`${this.hero.name} está se defendendo.`);
-        } else {
-          this.actionResults.push(`${this.hero.name} está pronto para o combate.`);
-        }
-
+      if (this.isHeroTurn) {
+        this.hero.guard = !this.hero.guard;
         this.isHeroTurn = false;
-
         setTimeout(() => {
           this.attackOrc();
-        }, 1000);
+        }, 500);
       }
     }
   }
