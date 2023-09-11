@@ -1,14 +1,28 @@
-<div class="game-info text-center">
-  <div class="hero-orc">
-    <p>Paladino: <span>{{ hero?.health }}</span></p>
-    <p>Orc: <span>{{ enemy?.health }}</span></p>
+<div class="game-info">
+  <div class="row hero-orc">
+    <div class="col-6">
+      <p class="name">{{ hero?.name }}</p>
+      <p>ATK: <span>{{ hero?.ATK }}</span> | DEF: <span>{{ hero?.DEF }}</span></p>
+      <div class="hp-bar">
+        <div class="hp-fill" [style.width.%]="isHeroHPZero() ? 0 : (hero.HP / hero.maxHP) * 100" [class.empty-hp-fill]="isHeroHPZero()">
+          <span class="hp-text">{{ hero.HP }} / {{ hero.maxHP }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <p class="name">{{ enemy?.name }}</p>
+      <p>ATK: <span>{{ enemy?.ATK }} | DEF: <span>{{ enemy?.DEF }}</span></span></p>
+      <div class="hp-bar">
+        <div class="hp-fill" [style.width.%]="isEnemyHPZero() ? 0 : (enemy.HP / enemy.maxHP) * 100" [class.empty-hp-fill]="isEnemyHPZero()">
+          <span class="hp-text">{{ enemy.HP }} / {{ enemy.maxHP }}</span>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="result-box" #resultBox>
     <div *ngFor="let result of actionResults">
-      <p class="action-result"
-      [class.hero-message]="result.includes(hero.name)"
-      [class.orc-message]="result.includes(enemy.name)"
-      [class.critical-message]="result.includes('crítico')">
+      <p class="action-result" [class.hero-message]="result.includes(hero.name)"
+        [class.orc-message]="result.includes(enemy.name)" [class.critical-message]="result.includes('crítico')">
         {{ result }}
       </p>
     </div>

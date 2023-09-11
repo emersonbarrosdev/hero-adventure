@@ -26,15 +26,21 @@ export class ActionsBattleComponent implements OnInit, OnDestroy {
       this.actionResults = results;
       this.scrollToBottom();
     });
-
   }
-
 
   scrollToBottom() {
     setTimeout(() => {
       const resultBoxElement = this.resultBox.nativeElement;
       resultBoxElement.scrollTop = resultBoxElement.scrollHeight;
     });
+  }
+
+  isHeroHPZero(): boolean {
+    return this.hero.HP <= 0;
+  }
+
+ isEnemyHPZero(): boolean {
+    return this.enemy.HP <= 0;
   }
 
   ngOnDestroy() {

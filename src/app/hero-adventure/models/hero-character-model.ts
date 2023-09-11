@@ -1,17 +1,19 @@
 export class HeroCharacterModel {
   name: string;
-  health: number;
-  power: number;
-  defense: number;
+  HP: number;
+  ATK: number;
+  DEF: number;
+  maxHP: number;
   guard: boolean;
 
   constructor(
-    name: string, health: number, power: number, defense: number, guard: boolean
+    name: string, HP: number, ATK: number, DEF: number, guard: boolean
     ) {
     this.name = name;
-    this.health = health;
-    this.power = power;
-    this.defense = defense;
+    this.HP = HP;
+    this.ATK = ATK;
+    this.DEF = DEF;
+    this.maxHP = HP;
     this.guard = guard;
   }
 

@@ -10,7 +10,9 @@
       </div>
       <div>
         <button class="btn btn-dark m-2" *ngIf="!isGameOver" [disabled]="!isHeroTurn" (click)="attack()">Atacar</button>
-        <button class="btn btn-dark m-2" *ngIf="!isGameOver" [disabled]="!isHeroTurn" (click)="defend()">Defender</button>
+        <button class="btn btn-dark m-2" *ngIf="!isGameOver" [disabled]="!isHeroTurn" (click)="defend()">
+          {{ hero.guard ? 'Cancelar Defesa' : 'Defender' }}
+        </button>
         <button class="btn btn-dark m-2" *ngIf="!orcIsDead && isGameOver" (click)="home()">Home</button>
         <button class="btn btn-dark m-2" *ngIf="orcIsDead" (click)="nextPhase()">Seguir</button>
       </div>
@@ -19,6 +21,5 @@
     <div>
       <app-actions-battle></app-actions-battle>
     </div>
-    <button class="btn btn-dark m-2" (click)="home()">Home</button>
   </div>
 </ng-template>

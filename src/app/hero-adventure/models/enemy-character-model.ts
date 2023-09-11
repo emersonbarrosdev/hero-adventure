@@ -1,15 +1,17 @@
 export class EnemyCharacterModel {
   name: string;
-  health: number;
-  power: number;
-  defense: number;
+  HP: number;
+  ATK: number;
+  DEF: number;
+  maxHP: number;
 
   constructor(
-    name: string, health: number, power: number, defense: number
+    name: string, HP: number, ATK: number, DEF: number
   ) {
     this.name = name;
-    this.health = health;
-    this.power = power;
-    this.defense = defense;
+    this.HP = HP;
+    this.ATK = ATK;
+    this.DEF = DEF;
+    this.maxHP = HP;
   }
 }
