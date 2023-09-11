@@ -22,7 +22,7 @@ export class ActionsBattleComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.hero = this.gameService.getHero();
     this.enemy = this.gameService.getEnemy();
-    this.actionResultsSubscription = this.gameService.getActionResults().subscribe((results) => {
+    this.actionResultsSubscription = this.gameService.actionResults$.subscribe((results) => {
       this.actionResults = results;
       this.scrollToBottom();
     });

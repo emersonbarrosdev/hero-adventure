@@ -4,6 +4,6 @@
     <p>Orc: <span>{{ enemy?.health }}</span></p>
   </div>
   <div class="result-box" #resultBox>
-    <p class="action-result text-white" *ngFor="let result of actionResults" [innerHTML]="result"></p>
+    <p class="action-result text-white" *ngFor="let result of actionResults">{{ result }}</p>
   </div>
 </div>

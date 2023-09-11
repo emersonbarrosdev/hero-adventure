@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ElfForestComponent } from './elf-forest.component';
+import { MythicalForestComponent } from './mythical-forest.component';
 
 describe('ElfForestComponent', () => {
-  let component: ElfForestComponent;
-  let fixture: ComponentFixture<ElfForestComponent>;
+  let component: MythicalForestComponent;
+  let fixture: ComponentFixture<MythicalForestComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ElfForestComponent]
+      declarations: [MythicalForestComponent]
     });
-    fixture = TestBed.createComponent(ElfForestComponent);
+    fixture = TestBed.createComponent(MythicalForestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
